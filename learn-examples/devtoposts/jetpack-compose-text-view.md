@@ -13,6 +13,10 @@ In Google IO '19, Google launched Jetpack Compose to create declarative UI. So, 
 
 In this sample, we are going to learn how to display a simple text using compose.
 
+|Example|Preview|
+|-------|-------|
+|[How do I display text on the screen using Jetpack Compose?](../app/src/main/java/com/example/learnandroid/samples/text/SimpleTextActivity.kt)|<img src ="./assets/simpletextview.png" width=214 height=400> |
+
 ## Why we should use Jetpack Compose?
 We should use Jetpack compose because using it we have to write less code compared to what we write today. For example, we are not writing XML files explicitly now. Also, using compose we can write any type of UI just by using Kotlin.
 
@@ -32,7 +36,6 @@ fun AnyUiComponent() {
 Now, you know what Composable Functions are and how to make a composable function by using the @Composable annotation. Let's move on to the example of Text.
 
 ## Displaying a Simple Text
-
 
 To display a text, we use Text Composable and inside that, we pass the string that we want to display. For example,
 
@@ -55,7 +58,7 @@ class SimpleTextActivity : AppCompatActivity() {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                SimpleText(getString("I am learning Compose"))
+                SimpleText(getString(R.string.text_message_simpletext))
             }
         }
     }

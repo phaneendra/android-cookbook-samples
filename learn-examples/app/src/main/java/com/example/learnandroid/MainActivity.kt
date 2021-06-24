@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
@@ -21,24 +22,25 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.learnandroid.data.getActivitiesList
 import com.example.learnandroid.ui.theme.LearnAndroidTheme
+import com.example.learnandroid.samples.text.SimpleTextActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             LearnAndroidTheme {
+                val context = LocalContext.current
+                val activityList = getActivitiesList(context = context)
                 LazyColumn {
-                    //val context = LocalContext.current
-                    ComponentItem(
-                        context = context,
-                        intent = Intent(context, SimpleActivityText::class.java),
-                        buttonText = "Simple Text"
-                    )
-                }
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-
+                    items(activityList) { activity ->
+                        ComponentItem(
+                            context = context,
+                            intent = activity.intent,
+                            title = activity.title
+                        )
+                    }
                 }
             }
         }
@@ -46,7 +48,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ComponentItem(context: Context, intent: Intent, buttonText: String) {
+fun ComponentItem(context: Context, intent: Intent, title: String) {
     Button(
         onClick = {
             context.startActivity(intent)
@@ -60,16 +62,8 @@ fun ComponentItem(context: Context, intent: Intent, buttonText: String) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(8.dp),
-            text = buttonText,
+            text = title,
             textAlign = TextAlign.Center
         )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    LearnAndroidTheme {
-        Greeting("Android")
     }
 }
