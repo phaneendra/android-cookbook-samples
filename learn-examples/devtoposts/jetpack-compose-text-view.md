@@ -7,8 +7,6 @@ tags: jetpack,compose,android
 
 This is part of a collection of samples for learning android development,
 
-Best way to learn is by doing, This is my journey on learning android skills a day at a time, mostly self-taught, and use Kotlin in all my Android projects, I start this project for testing my skills and improving programme. The samples are all from internet and blog posts that others have done, I take it and just write by myself. Most of the projects I cannot finish it once I see the final output, so resorting to Google search and StackOverFlow to find a solution, and try my best to make them done, and after all I have uploaded and updated the projects to my Github account. If you have some questions please leave me a comment and I’ll appreciate it!
-
 In Google IO '19, Google launched Jetpack Compose to create declarative UI. So, basically, declarative UI means to create UI by specifying a specific set of UI elements we need and to structure it some way.
 
 In this sample, we are going to learn how to display a simple text using compose.
